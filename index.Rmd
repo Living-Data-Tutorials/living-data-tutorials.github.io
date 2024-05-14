@@ -12,7 +12,30 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-```{r, results='asis', }
+<style>
+.zoom {
+  transition: transform .2s;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.15); /* IE 9 */
+  -webkit-transform: scale(1.15); /* Safari 3-8 */
+  transform: scale(1.15); 
+}
+
+p {
+  margin-bottom: 0 !Important;
+}
+
+</style>
+
+```{r, results='asis'}
+cat("<div style='
+    display: grid; 
+    grid-template-columns: auto auto auto;
+    column-gap: 25px;
+    row-gap: 15px;'>")
+
 ## Extract menu item named "Tutorials" in navbar from _site.yaml 
 right_navbar = yaml::read_yaml("_site.yml")$navbar$right
 for(tuts in right_navbar ) {
@@ -21,15 +44,18 @@ for(tuts in right_navbar ) {
 
 ## Print logos as links to tutorial
 for(t in tuts$menu) {
+  
+  cat("<div class='zoom'>")
+  
   if(is.null(t$logo)) { 
     # print text if no logo provided
-    print(glue::glue("![{t$text}]({t$href})")) 
+    cat(glue::glue("![{t$text}]({t$href})")) 
     }
   else { 
-    print(glue::glue("[![{t$text}]({t$logo})]({t$href})")) 
+    cat(glue::glue("[![{t$text}]({t$logo})]({t$href})")) 
   }
-  cat("\n\n")
+  cat("\n\n</div>")
 }
 ```
 
-
+<div>
