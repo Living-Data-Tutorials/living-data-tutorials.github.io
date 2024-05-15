@@ -1,4 +1,4 @@
-name: "."
+# name: "."
 title: "Living Data Tutorials"
 description: |
   Living Data Tutorials
@@ -16,16 +16,22 @@ navbar:
         #   href: lessons/2022-04-07-codyn-tutorial/index.html
         - text: "Disease Modelling in Mule Deer"
           href: lessons/2022-06-03-chronic-wasting-disease/index.html
+          logo: figures/tutorials/diseasemodelling.png
         - text: "Community Ecology: Hemlock Looper Outbreak on Anticosti Island"
           href: lessons/2022-04-07-anticosti-historical-data-tutorial/index.html
+          logo: figures/tutorials/anticosti.png
         - text: "Tree Diversity & Dendrochronology in Alberta, BC Forests"
           href: lessons/2022-04-07-alberta-trees-tutorial/index.html
+          logo: figures/tutorials/albertatrees.png
         - text: "Tree Swallow Life History: R Basics & Data Exploration"
           href: lessons/2022-04-07-tree-swallow-dataset/index.html
+          logo: figures/tutorials/treeswallowlifehistory.png
         - text: "Sexual Dimorphism & Sexual Selection in Tree Swallows"
           href: lessons/2022-04-07-sexual-dimorphism-and-sexual-selection/index.html
+          logo: figures/tutorials/sexualdimorphism.png
         - text: "Understanding Biodiversity with Metrics & Rank Abundance Curves"
           href: lessons/2022-08-26-species-richness-rank-abundance-curves/index.html
+          logo: figures/tutorials/biodiversity.png
     - text: "About"
       href: about.html
 collections:

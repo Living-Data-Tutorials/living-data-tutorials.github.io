@@ -11,6 +11,51 @@ creative_commons: CC BY-NC
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-We are a group of early career researchers from Canada who created a series of curated datasets with accompanying R-based tutorials. The six tutorials are based on Canadian open datasets with accompanying R code that can be used in undergraduate courses in ecology and evolutionary biology.
 
-We designed the tutorials to teach, illustrate, and support exploration of core concepts in ecology and evolutionary biology. The tutorials span a variety of topics, skill levels, and formats to allow instructors to use as is or modify according to their needs. Please consult our guidelines for instructors for recommendations on how to use our tutorials in the classroom.
+<style>
+.zoom {
+  transition: transform .2s;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.15); /* IE 9 */
+  -webkit-transform: scale(1.15); /* Safari 3-8 */
+  transform: scale(1.15); 
+}
+
+p {
+  margin-bottom: 0 !Important;
+}
+
+</style>
+
+```{r, results='asis'}
+cat("<div style='
+    display: grid; 
+    grid-template-columns: auto auto auto;
+    column-gap: 25px;
+    row-gap: 15px;'>")
+
+## Extract menu item named "Tutorials" in navbar from _site.yaml 
+right_navbar = yaml::read_yaml("_site.yml")$navbar$right
+for(tuts in right_navbar ) {
+  if( tuts$text == "Tutorials" ) break
+}
+
+## Print logos as links to tutorial
+for(t in tuts$menu) {
+  
+  cat("<div class='zoom'>")
+  
+  if(is.null(t$logo)) { 
+    # print text if no logo provided
+    cat(glue::glue("![{t$text}]({t$href})")) 
+    }
+  else { 
+    cat(glue::glue("[![{t$text}]({t$logo})]({t$href})")) 
+  }
+  cat("\n\n</div>")
+}
+```
+
+<div>
